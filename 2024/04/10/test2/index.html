@@ -16,22 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="aaaa 123 测试123 测试 阿斯顿发生龙卷风 基于Hexo+Fluid搭建专属的个人博客网站 - 知乎 (zhihu.com)">
+    <meta name="description" content="okok[1]@SaCheckPermission(&quot;tool:gen:code&quot;) @Log(title &#x3D; &quot;代码生成&quot;, businessType &#x3D; BusinessType.GENCODE) @GetMapping(&quot;&#x2F;download&#x2F;&#123;tableName&#125;&quot;) public void download(HttpServletResponse response, @">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://example.com/2024/04/10/test/index.html">
+<meta property="og:title" content="test2">
+<meta property="og:url" content="http://example.com/2024/04/10/test2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="aaaa 123 测试123 测试 阿斯顿发生龙卷风 基于Hexo+Fluid搭建专属的个人博客网站 - 知乎 (zhihu.com)">
+<meta property="og:description" content="okok[1]@SaCheckPermission(&quot;tool:gen:code&quot;) @Log(title &#x3D; &quot;代码生成&quot;, businessType &#x3D; BusinessType.GENCODE) @GetMapping(&quot;&#x2F;download&#x2F;&#123;tableName&#125;&quot;) public void download(HttpServletResponse response, @">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-10T08:47:38.000Z">
-<meta property="article:modified_time" content="2024-04-10T13:12:08.063Z">
+<meta property="og:image" content="http://example.com/img/test2/19.jpg">
+<meta property="article:published_time" content="2024-04-10T09:03:44.000Z">
+<meta property="article:modified_time" content="2024-04-10T13:46:26.310Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="test">
+<meta property="article:tag" content="true">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/test2/19.jpg">
   
   
   
-  <title>test - Hexo</title>
+  <title>test2 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +230,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="test"></span>
+            <span id="subtitle" data-typed-text="test2"></span>
           
         </div>
 
@@ -239,7 +241,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-10 16:47" pubdate>
+        <time datetime="2024-04-10 17:03" pubdate>
           2024年4月10日 下午
         </time>
       </span>
@@ -251,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          31 字
+          37 字
         
       </span>
     
@@ -299,18 +301,22 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">test</h1>
+            <h1 id="seo-header">test2</h1>
             
             
               <div class="markdown-body">
                 
-                <p>aaaa</p>
-<p>123</p>
-<p>测试123</p>
-<p>测试</p>
-<p>阿斯顿发生龙卷风</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/592865603">基于Hexo+Fluid搭建专属的个人博客网站 - 知乎 (zhihu.com)</a></p>
+                <h1 id="okok-1"><a href="#okok-1" class="headerlink" title="okok[1]"></a>okok<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="okok">[1]</span></a></sup></h1><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SaCheckPermission</span><span class="token punctuation">(</span><span class="token string">"tool:gen:code"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Log</span><span class="token punctuation">(</span>title <span class="token operator">=</span> <span class="token string">"代码生成"</span><span class="token punctuation">,</span> businessType <span class="token operator">=</span> <span class="token class-name">BusinessType</span><span class="token punctuation">.</span><span class="token constant">GENCODE</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/download/&#123;tableName&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">download</span><span class="token punctuation">(</span><span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"tableName"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> tableName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data <span class="token operator">=</span> genTableService<span class="token punctuation">.</span><span class="token function">downloadCode</span><span class="token punctuation">(</span>tableName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">genCode</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
+<p><img src="/img/test2/19.jpg" srcset="/img/loading.gif" lazyload alt="19"></p>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>okok
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -343,7 +349,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/test/" class="print-no-link">#test</a>
+        <a href="/tags/true/" class="print-no-link">#true</a>
       
     </div>
   
@@ -355,8 +361,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>test</div>
-      <div>http://example.com/2024/04/10/test/</div>
+      <div>test2</div>
+      <div>http://example.com/2024/04/10/test2/</div>
     </div>
     <div class="license-meta">
       
@@ -395,6 +401,23 @@
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/09/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
