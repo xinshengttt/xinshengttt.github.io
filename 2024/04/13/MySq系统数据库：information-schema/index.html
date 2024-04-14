@@ -16,24 +16,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="okok[1]@SaCheckPermission(&quot;tool:gen:code&quot;) @Log(title &#x3D; &quot;代码生成&quot;, businessType &#x3D; BusinessType.GENCODE) @GetMapping(&quot;&#x2F;download&#x2F;&#123;tableName&#125;&quot;) public void download(HttpServletResponse response, @">
+    <meta name="description" content="简单介绍information_schema：mysql自带的数据库，用于存储数据库元数据，例如数据库名、表名、列的数据类型、访问权限等。通过查询information_schema中的视图和表，用户可以获取数据库架构的详细信息，以便进行元数据管理、数据字典生成、权限管理等。 数据库的部分表结构information_schema.tables表示查询数据库information_schema的表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test2">
-<meta property="og:url" content="http://example.com/2024/04/10/test2/index.html">
+<meta property="og:title" content="MySq系统数据库：information_schema">
+<meta property="og:url" content="http://example.com/2024/04/13/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation-schema/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="okok[1]@SaCheckPermission(&quot;tool:gen:code&quot;) @Log(title &#x3D; &quot;代码生成&quot;, businessType &#x3D; BusinessType.GENCODE) @GetMapping(&quot;&#x2F;download&#x2F;&#123;tableName&#125;&quot;) public void download(HttpServletResponse response, @">
+<meta property="og:description" content="简单介绍information_schema：mysql自带的数据库，用于存储数据库元数据，例如数据库名、表名、列的数据类型、访问权限等。通过查询information_schema中的视图和表，用户可以获取数据库架构的详细信息，以便进行元数据管理、数据字典生成、权限管理等。 数据库的部分表结构information_schema.tables表示查询数据库information_schema的表">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/test2/19.jpg">
-<meta property="article:published_time" content="2024-04-10T09:03:44.000Z">
-<meta property="article:modified_time" content="2024-04-10T13:46:26.310Z">
+<meta property="og:image" content="http://example.com/img/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation_schema/1.png">
+<meta property="article:published_time" content="2024-04-13T05:23:41.000Z">
+<meta property="article:modified_time" content="2024-04-13T05:31:54.697Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="true">
+<meta property="article:tag" content="ruoyi-vue-plus">
+<meta property="article:tag" content="MySql">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/test2/19.jpg">
+<meta name="twitter:image" content="http://example.com/img/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation_schema/1.png">
   
   
   
-  <title>test2 - Hexo</title>
+  <title>MySq系统数据库：information_schema - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -230,7 +231,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="test2"></span>
+            <span id="subtitle" data-typed-text="MySq系统数据库：information_schema"></span>
           
         </div>
 
@@ -241,8 +242,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-10 17:03" pubdate>
-          2024年4月10日 下午
+        <time datetime="2024-04-13 13:23" pubdate>
+          2024年4月13日 下午
         </time>
       </span>
     
@@ -253,7 +254,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          37 字
+          400 字
         
       </span>
     
@@ -264,7 +265,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -301,22 +302,37 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">test2</h1>
+            <h1 id="seo-header">MySq系统数据库：information_schema</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="okok-1"><a href="#okok-1" class="headerlink" title="okok[1]"></a>okok<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="okok">[1]</span></a></sup></h1><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SaCheckPermission</span><span class="token punctuation">(</span><span class="token string">"tool:gen:code"</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@Log</span><span class="token punctuation">(</span>title <span class="token operator">=</span> <span class="token string">"代码生成"</span><span class="token punctuation">,</span> businessType <span class="token operator">=</span> <span class="token class-name">BusinessType</span><span class="token punctuation">.</span><span class="token constant">GENCODE</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/download/&#123;tableName&#125;"</span><span class="token punctuation">)</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">download</span><span class="token punctuation">(</span><span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"tableName"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> tableName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data <span class="token operator">=</span> genTableService<span class="token punctuation">.</span><span class="token function">downloadCode</span><span class="token punctuation">(</span>tableName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">genCode</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+                <h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p>information_schema：mysql自带的数据库，用于存储数据库元数据，例如数据库名、表名、列的数据类型、访问权限等。通过查询information_schema中的视图和表，用户可以获取数据库架构的详细信息，以便进行元数据管理、数据字典生成、权限管理等。</p>
+<h4 id="数据库的部分表结构"><a href="#数据库的部分表结构" class="headerlink" title="数据库的部分表结构"></a>数据库的部分表结构</h4><h5 id="information-schema-tables"><a href="#information-schema-tables" class="headerlink" title="information_schema.tables"></a>information_schema.tables</h5><p>表示查询数据库information_schema的表tables。</p>
+<p>tables：information_schema的一张表，用于存储数据库的表信息，包括表属于哪个数据库、表的名称、表的类型、创建时间、存储引擎。</p>
+<h5 id="information-schema-columns"><a href="#information-schema-columns" class="headerlink" title="information_schema.columns"></a>information_schema.columns</h5><p>information_schema.columns: 数据库information_schema的表columns，存储了关于数据库中所有表的列的信息。</p>
+<p>下面来看一段mysql代码：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select column_name,
+                   (case when (is_nullable &#x3D; &#39;no&#39; &lt;![CDATA[ &amp;&amp; ]]&gt; column_key !&#x3D; &#39;PRI&#39;) then &#39;1&#39; else &#39;0&#39; end) as is_required,
+                   (case when column_key &#x3D; &#39;PRI&#39; then &#39;1&#39; else &#39;0&#39; end) as is_pk,
+                   ordinal_position as sort,
+                   column_comment,
+                   (case when extra &#x3D; &#39;auto_increment&#39; then &#39;1&#39; else &#39;0&#39; end) as is_increment,
+                   column_type
+            from information_schema.columns where table_schema &#x3D; (select database()) and table_name &#x3D; (#&#123;tableName&#125;)
+            order by ordinal_position<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
-<p><img src="/img/test2/19.jpg" srcset="/img/loading.gif" lazyload alt="19"></p>
-<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>okok
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<h6 id="解释字段："><a href="#解释字段：" class="headerlink" title="解释字段："></a>解释字段：</h6><p>is_nulable: 如果列有关键字NOT NULL修饰，则结果为no，表示不能为空，反之则为yes.</p>
+<p>column_key: 判断列是否为主键，是则显示’PRI’.</p>
+<p>ordinal_position: 排列顺序</p>
+<p>column_comment: 列注释</p>
+<p>extra: 额外信息</p>
+<p>column_type: 列类型</p>
+<p><img src="/img/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation_schema/1.png" srcset="/img/loading.gif" lazyload></p>
+<p>select database()：查询当前使用的是哪个数据库</p>
+<p>case when: 这是在sql中启动了一个条件语句，如果条件成立，则执行then语句内容，否则实行else语句内容。</p>
+<p><code>&lt;![CDATA[ &amp;&amp; ]]&gt;</code>: 目的是为了让XML解析器让将’&amp;&amp;’视为纯文本而不是XML标记。</p>
+
                 
               </div>
             
@@ -334,7 +350,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/true/" class="category-chain-item">true</a>
+  <a href="/categories/MySql/" class="category-chain-item">MySql</a>
   
   
 
@@ -349,7 +365,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/true/" class="print-no-link">#true</a>
+        <a href="/tags/ruoyi-vue-plus/" class="print-no-link">#ruoyi-vue-plus</a>
+      
+        <a href="/tags/MySql/" class="print-no-link">#MySql</a>
       
     </div>
   
@@ -361,21 +379,21 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>test2</div>
-      <div>http://example.com/2024/04/10/test2/</div>
+      <div>MySq系统数据库：information_schema</div>
+      <div>http://example.com/2024/04/13/MySq系统数据库：information-schema/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月10日</div>
+          <div>2024年4月13日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年4月10日</div>
+          <div>2024年4月13日</div>
         </div>
       
       
@@ -410,8 +428,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/09/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2024/04/11/Velocity%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%92%8C%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" title="Velocity模板引擎和模板语法基础">
+                        <span class="hidden-mobile">Velocity模板引擎和模板语法基础</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
