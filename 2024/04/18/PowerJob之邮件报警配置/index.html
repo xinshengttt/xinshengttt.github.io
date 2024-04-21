@@ -16,16 +16,20 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="配置文件spring.mail.host&#x3D;smtp.163.com spring.mail.username&#x3D;becant223@163.com # 这里不是邮箱密码，而是授权码，通过下面方式获取 spring.mail.password&#x3D;xxxxxxxx spring.mail.properties.mail.smtp.auth&#x3D;true spring.m">
+    <meta name="description" content="文档地址：点击这里  配置文件spring.mail.host&#x3D;smtp.163.com spring.mail.username&#x3D;becant223@163.com # 这里不是邮箱密码，而是授权码，通过下面方式获取 spring.mail.password&#x3D;xxxxxxxx spring.mail.properties.mail.smtp.auth&#x3D;tr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PowerJob之邮件报警配置">
 <meta property="og:url" content="http://example.com/2024/04/18/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="配置文件spring.mail.host&#x3D;smtp.163.com spring.mail.username&#x3D;becant223@163.com # 这里不是邮箱密码，而是授权码，通过下面方式获取 spring.mail.password&#x3D;xxxxxxxx spring.mail.properties.mail.smtp.auth&#x3D;true spring.m">
+<meta property="og:description" content="文档地址：点击这里  配置文件spring.mail.host&#x3D;smtp.163.com spring.mail.username&#x3D;becant223@163.com # 这里不是邮箱密码，而是授权码，通过下面方式获取 spring.mail.password&#x3D;xxxxxxxx spring.mail.properties.mail.smtp.auth&#x3D;tr">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/1.png">
+<meta property="og:image" content="http://example.com/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/2.png">
+<meta property="og:image" content="http://example.com/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/3.png">
+<meta property="og:image" content="http://example.com/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/4.png">
+<meta property="og:image" content="http://example.com/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/5.png">
 <meta property="article:published_time" content="2024-04-18T11:49:44.000Z">
-<meta property="article:modified_time" content="2024-04-18T12:40:36.699Z">
+<meta property="article:modified_time" content="2024-04-20T05:01:23.206Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="PowerJob">
 <meta name="twitter:card" content="summary_large_image">
@@ -224,7 +228,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/post.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default/post.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -253,7 +257,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          165 字
+          646 字
         
       </span>
     
@@ -264,7 +268,7 @@
         
         
         
-          2 分钟
+          6 分钟
         
       </span>
     
@@ -310,7 +314,9 @@
             
               <div class="markdown-body">
                 
-                <h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">spring.mail.host&#x3D;smtp.163.com
+                <p>文档地址：<a target="_blank" rel="noopener" href="https://www.yuque.com/powerjob/guidence/intro">点击这里</a></p>
+<hr>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">spring.mail.host&#x3D;smtp.163.com
 spring.mail.username&#x3D;becant223@163.com
 # 这里不是邮箱密码，而是授权码，通过下面方式获取
 spring.mail.password&#x3D;xxxxxxxx
@@ -319,11 +325,143 @@ spring.mail.properties.mail.smtp.starttls.enable&#x3D;true
 spring.mail.properties.mail.smtp.starttls.required&#x3D;true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
 <p>配置文件配置的是 发送邮件的邮箱</p>
-<h5 id="获取授权码"><a href="#获取授权码" class="headerlink" title="获取授权码"></a>获取授权码</h5><p>1.打开163邮箱官网，登录</p>
+<h4 id="获取授权码"><a href="#获取授权码" class="headerlink" title="获取授权码"></a>获取授权码</h4><p>1.打开163邮箱官网，登录</p>
 <p>2.点击顶部栏设置 —&gt; POP3&#x2F;SMTP&#x2F;IMAP</p>
 <p>3.开启 POP3&#x2F;SMTP服务</p>
-<h5 id="报警用户录入"><a href="#报警用户录入" class="headerlink" title="报警用户录入"></a>报警用户录入</h5><p>图片显示的邮件地址是 接收邮件的地址，(如果录入的是qq邮箱而且接收不到邮件，可以去垃圾箱看一看~~)</p>
+<h4 id="报警用户录入"><a href="#报警用户录入" class="headerlink" title="报警用户录入"></a>报警用户录入</h4><p>图片显示的邮件地址是 接收邮件的地址，(如果录入的是qq邮箱而且接收不到邮件，可以去垃圾箱看一看~~)</p>
 <p><img src="/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/1.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h4><h5 id="1-单机执行"><a href="#1-单机执行" class="headerlink" title="1.单机执行"></a>1.单机执行</h5><p>任务信息：</p>
+<p><img src="/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/2.png" srcset="/img/loading.gif" lazyload></p>
+<p>当任务执行失败时，经过一系列的方法，然后会进入processFinishedInstance()方法。</p>
+<p><img src="/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/3.png" srcset="/img/loading.gif" lazyload></p>
+<p>alert()方法</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"> 
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@RequiredArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InstanceManager</span> <span class="token keyword">implements</span> <span class="token class-name">TransportServiceAware</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">// 构造注入</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">AlarmCenter</span> alarmCenter<span class="token punctuation">;</span>
+    
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token class-name">Long</span> instanceId<span class="token punctuation">,</span> <span class="token class-name">String</span> alertContent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"alert=--==-=--=-==-=--=-==--==-=--=-==--==-=-=-=-"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 根据instanceId获取任务运行日志表</span>
+        <span class="token class-name">InstanceInfoDO</span> instanceInfo <span class="token operator">=</span> instanceInfoRepository<span class="token punctuation">.</span><span class="token function">findByInstanceId</span><span class="token punctuation">(</span>instanceId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 任务信息表</span>
+        <span class="token class-name">JobInfoDO</span> jobInfo<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// fetchJobInfoByInstanceId(instanceId):根据 instanceId 获取 JobInfo</span>
+            jobInfo <span class="token operator">=</span> instanceMetadataService<span class="token punctuation">.</span><span class="token function">fetchJobInfoByInstanceId</span><span class="token punctuation">(</span>instanceId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            log<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"[InstanceManager-&#123;&#125;] can't find jobInfo, alarm failed."</span><span class="token punctuation">,</span> instanceId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 获取任务执行失败告警对象</span>
+        <span class="token class-name">JobInstanceAlarm</span> content <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JobInstanceAlarm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 设置信息</span>
+        <span class="token class-name">BeanUtils</span><span class="token punctuation">.</span><span class="token function">copyProperties</span><span class="token punctuation">(</span>jobInfo<span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">BeanUtils</span><span class="token punctuation">.</span><span class="token function">copyProperties</span><span class="token punctuation">(</span>instanceInfo<span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// fetchNotifyUserList(jobInfo.getNotifyUserIds()):根据用户ID字符串获取用户信息详细列表</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">UserInfoDO</span><span class="token punctuation">></span></span> userList <span class="token operator">=</span> <span class="token class-name">SpringUtils</span><span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">UserService</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fetchNotifyUserList</span><span class="token punctuation">(</span>jobInfo<span class="token punctuation">.</span><span class="token function">getNotifyUserIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>alertContent<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            content<span class="token punctuation">.</span><span class="token function">setResult</span><span class="token punctuation">(</span>alertContent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        alarmCenter<span class="token punctuation">.</span><span class="token function">alarmFailed</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> <span class="token class-name">AlarmUtils</span><span class="token punctuation">.</span><span class="token function">convertUserInfoList2AlarmTargetList</span><span class="token punctuation">(</span>userList<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>AlarmCenter类</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AlarmCenter</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ExecutorService</span> <span class="token constant">POOL</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Alarmable</span><span class="token punctuation">></span></span> <span class="token constant">BEANS</span> <span class="token operator">=</span> <span class="token class-name">Lists</span><span class="token punctuation">.</span><span class="token function">newLinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 用于构造注入，参数为Alarmble的实现类(DingTalkAlarmService,MailAlarmService,WebHookAlarmService)</span>
+    <span class="token keyword">public</span> <span class="token class-name">AlarmCenter</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Alarmable</span><span class="token punctuation">></span></span> alarmables<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> cores <span class="token operator">=</span> <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">availableProcessors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ThreadFactory</span> factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadFactoryBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setNameFormat</span><span class="token punctuation">(</span><span class="token string">"AlarmPool-%d"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token constant">POOL</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span>cores<span class="token punctuation">,</span> cores<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">MINUTES</span><span class="token punctuation">,</span> <span class="token class-name">Queues</span><span class="token punctuation">.</span><span class="token function">newLinkedBlockingQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> factory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        alarmables<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>bean <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+            <span class="token constant">BEANS</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[AlarmCenter] bean(className=&#123;&#125;,obj=&#123;&#125;) register to AlarmCenter successfully!"</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+	
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">alarmFailed</span><span class="token punctuation">(</span><span class="token class-name">Alarm</span> alarm<span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AlarmTarget</span><span class="token punctuation">></span></span> alarmTargets<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"alarmFailed=--==-=--=-==-=--=-==--==-=--=-==--==-=-=-=-"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 录入警告信息时，只录入了邮件，而没有录入WebHook和钉钉</span>
+        <span class="token comment">// 故不会进入到DingTalkAlarmService.onFailed()和WebHookAlarmService.onFailed()</span>
+        <span class="token comment">// 只进入MailAlarmService.onFailed()</span>
+        <span class="token constant">POOL</span><span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token constant">BEANS</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>alarmable <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+                log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"alarmable:&#123;&#125;"</span><span class="token punctuation">,</span> alarmable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                alarmable<span class="token punctuation">.</span><span class="token function">onFailed</span><span class="token punctuation">(</span>alarm<span class="token punctuation">,</span> alarmTargets<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                log<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"[AlarmCenter] alarm failed."</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>MailAlarmService类</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 邮件通知服务
+ *
+ * @author tjq
+ * @since 2020/4/30
+ */</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MailAlarmService</span> <span class="token keyword">implements</span> <span class="token class-name">Alarmable</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Resource</span>
+    <span class="token keyword">private</span> <span class="token class-name">Environment</span> environment<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">JavaMailSender</span> javaMailSender<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;spring.mail.username:''&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> from<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailed</span><span class="token punctuation">(</span><span class="token class-name">Alarm</span> alarm<span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AlarmTarget</span><span class="token punctuation">></span></span> targetUserList<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"onFailed=--==-=--=-==-=--=-==--==-=--=-==--==-=-=-=-"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"javaMailSender:&#123;&#125;"</span><span class="token punctuation">,</span> javaMailSender<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">CollectionUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>targetUserList<span class="token punctuation">)</span> <span class="token operator">||</span> javaMailSender <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>from<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token class-name">SimpleMailMessage</span> sm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleMailMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            sm<span class="token punctuation">.</span><span class="token function">setFrom</span><span class="token punctuation">(</span>from<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sm<span class="token punctuation">.</span><span class="token function">setTo</span><span class="token punctuation">(</span>targetUserList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">AlarmTarget</span><span class="token operator">::</span><span class="token function">getEmail</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token class-name">Objects</span><span class="token operator">::</span><span class="token function">nonNull</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>email <span class="token operator">-></span> <span class="token operator">!</span>email<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sm<span class="token punctuation">.</span><span class="token function">setSubject</span><span class="token punctuation">(</span>alarm<span class="token punctuation">.</span><span class="token function">fetchTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sm<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>alarm<span class="token punctuation">.</span><span class="token function">fetchContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            javaMailSender<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>sm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            log<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"[MailAlarmService] send mail failed, reason is &#123;&#125;"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Autowired</span><span class="token punctuation">(</span>required <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setJavaMailSender</span><span class="token punctuation">(</span><span class="token class-name">JavaMailSender</span> javaMailSender<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>javaMailSender <span class="token operator">=</span> javaMailSender<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>当任务失败后，控制台的输出：</p>
+<p><img src="/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/4.png" srcset="/img/loading.gif" lazyload></p>
+<p>往下滑~~~~</p>
+<p><img src="/img/PowerJob%E4%B9%8B%E9%82%AE%E4%BB%B6%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE/5.png" srcset="/img/loading.gif" lazyload></p>
+<p>大致流程就是这样了~</p>
 
                 
               </div>
@@ -362,7 +500,7 @@ spring.mail.properties.mail.smtp.starttls.required&#x3D;true<span aria-hidden="t
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年4月18日</div>
+          <div>2024年4月20日</div>
         </div>
       
       
@@ -392,6 +530,12 @@ spring.mail.properties.mail.smtp.starttls.required&#x3D;true<span aria-hidden="t
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/04/20/ruoyi-vue-plus%E4%B9%8Bpom%E6%96%87%E4%BB%B6/" title="ruoyi-vue-plus之pom文件">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ruoyi-vue-plus之pom文件</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
