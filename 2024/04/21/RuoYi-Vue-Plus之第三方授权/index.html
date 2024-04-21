@@ -1,0 +1,821 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="文档地址：点击这里 项目地址：点击这里 功能介绍：点击这里  使用流程要实现第三方授权，不同的第三方需要配置的信息不一样，下面是一部分第三方应用的配置信息。 配置文件  配置类@Data @Component @ConfigurationProperties(prefix &#x3D; &quot;justauth&quot;) public class SocialProperties &#123;      &#x2F;**">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RuoYi-Vue-Plus之第三方授权">
+<meta property="og:url" content="http://example.com/2024/04/21/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="文档地址：点击这里 项目地址：点击这里 功能介绍：点击这里  使用流程要实现第三方授权，不同的第三方需要配置的信息不一样，下面是一部分第三方应用的配置信息。 配置文件  配置类@Data @Component @ConfigurationProperties(prefix &#x3D; &quot;justauth&quot;) public class SocialProperties &#123;      &#x2F;**">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/1.png">
+<meta property="og:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/2.png">
+<meta property="og:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/3.png">
+<meta property="og:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/4.png">
+<meta property="og:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/5.png">
+<meta property="og:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/6.png">
+<meta property="og:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/7.png">
+<meta property="og:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/8.png">
+<meta property="article:published_time" content="2024-04-21T14:47:34.000Z">
+<meta property="article:modified_time" content="2024-04-21T15:43:57.341Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="RuoYi-Vue-Plus">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/1.png">
+  
+  
+  
+  <title>RuoYi-Vue-Plus之第三方授权 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"umiEklzxwNBtVa5iJc3kPhtS-gzGzoHsz","app_key":"SxKquzDjzv3UJ41f9y0zofEI","server_url":"https://umieklzx.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Becant Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="RuoYi-Vue-Plus之第三方授权"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-21 22:47" pubdate>
+          2024年4月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          504 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">RuoYi-Vue-Plus之第三方授权</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>文档地址：<a target="_blank" rel="noopener" href="https://plus-doc.dromara.org/#/ruoyi-vue-plus/home">点击这里</a></p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://gitee.com/dromara/RuoYi-Vue-Plus/tree/4.X/">点击这里</a></p>
+<p>功能介绍：<a target="_blank" rel="noopener" href="https://www.justauth.cn/">点击这里</a></p>
+<hr>
+<h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><p>要实现第三方授权，不同的第三方需要配置的信息不一样，下面是一部分第三方应用的配置信息。</p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p><img src="/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/2.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="配置类"><a href="#配置类" class="headerlink" title="配置类"></a>配置类</h3><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"justauth"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SocialProperties</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">/**
+     * 是否启用
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">Boolean</span> enabled<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 授权类型
+     * SocialLoginConfigProperties已在上图指出
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SocialLoginConfigProperties</span><span class="token punctuation">></span></span> type<span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h3 id="授权登录"><a href="#授权登录" class="headerlink" title="授权登录"></a>授权登录</h3><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+     * 第三方登录请求
+     *
+     * @param source 登录来源
+     * @return 结果
+     */</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/binding/&#123;source&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">R</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">authBinding</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"source"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> source<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>socialProperties<span class="token punctuation">.</span><span class="token function">getEnabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token string">"第三方授权登录已关闭"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 从配置文件中获得信息</span>
+        <span class="token class-name">SocialLoginConfigProperties</span> obj <span class="token operator">=</span> socialProperties<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">ObjectUtil</span><span class="token punctuation">.</span><span class="token function">isNull</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span>source <span class="token operator">+</span> <span class="token string">"平台账号暂不支持"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">AuthRequest</span> authRequest <span class="token operator">=</span> <span class="token class-name">SocialUtils</span><span class="token punctuation">.</span><span class="token function">getAuthRequest</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> socialProperties<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> authorizeUrl <span class="token operator">=</span> authRequest<span class="token punctuation">.</span><span class="token function">authorize</span><span class="token punctuation">(</span><span class="token class-name">AuthStateUtils</span><span class="token punctuation">.</span><span class="token function">createState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token string">"操作成功"</span><span class="token punctuation">,</span> authorizeUrl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h4 id="SocialUtils工具类"><a href="#SocialUtils工具类" class="headerlink" title="SocialUtils工具类"></a>SocialUtils工具类</h4><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 认证授权工具类
+ *
+ * @author thiszhc
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SocialUtils</span>  <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">AuthRedisStateCache</span> <span class="token constant">STATE_CACHE</span> <span class="token operator">=</span> <span class="token class-name">SpringUtils</span><span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">AuthRedisStateCache</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">AuthRequest</span> <span class="token function">getAuthRequest</span><span class="token punctuation">(</span><span class="token class-name">String</span> source<span class="token punctuation">,</span> <span class="token class-name">SocialProperties</span> socialProperties<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">AuthException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">SocialLoginConfigProperties</span> obj <span class="token operator">=</span> socialProperties<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">ObjectUtil</span><span class="token punctuation">.</span><span class="token function">isNull</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">AuthException</span><span class="token punctuation">(</span><span class="token string">"不支持的第三方登录类型"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">AuthConfig<span class="token punctuation">.</span>AuthConfigBuilder</span> builder <span class="token operator">=</span> <span class="token class-name">AuthConfig</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">clientId</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">getClientId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">clientSecret</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">getClientSecret</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">redirectUri</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">getRedirectUri</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">switch</span> <span class="token punctuation">(</span>source<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">case</span> <span class="token string">"dingtalk"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthDingTalkRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"baidu"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthBaiduRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"github"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthGithubRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"gitee"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthGiteeRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"weibo"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthWeiboRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"coding"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthCodingRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"oschina"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthOschinaRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 支付宝在创建回调地址时，不允许使用localhost或者127.0.0.1，所以这儿的回调地址使用的局域网内的ip</span>
+            <span class="token keyword">case</span> <span class="token string">"alipay_wallet"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthAlipayRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> socialProperties<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"alipay_wallet"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getAlipayPublicKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"qq"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthQqRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"wechat_open"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthWeChatOpenRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"taobao"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthTaobaoRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"douyin"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthDouyinRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"linkedin"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthLinkedinRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"microsoft"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthMicrosoftRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"renren"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthRenrenRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"stack_overflow"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthStackOverflowRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">stackOverflowKey</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"huawei"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthHuaweiRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"wechat_enterprise"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthWeChatEnterpriseQrcodeRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">agentId</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"gitlab"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthGitlabRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"wechat_mp"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthWeChatMpRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"aliyun"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthAliyunRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"maxkey"</span> <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">AuthMaxKeyRequest</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">STATE_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span> <span class="token operator">-></span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">AuthException</span><span class="token punctuation">(</span><span class="token string">"未获取到有效的Auth配置"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h4 id="分析authRequest-authorize-AuthStateUtils-createState"><a href="#分析authRequest-authorize-AuthStateUtils-createState" class="headerlink" title="分析authRequest.authorize(AuthStateUtils.createState())"></a>分析authRequest.authorize(AuthStateUtils.createState())</h4><p>AuthStateUtils.createState()：生成uuid</p>
+<p>进入方法源码：</p>
+<p><img src="/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/6.png" srcset="/img/loading.gif" lazyload></p>
+<p>经过追溯源码，发现该方法主要作用就是构建url以及把uuid缓存到redis中</p>
+<p><img src="/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/7.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/RuoYi-Vue-Plus%E4%B9%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/8.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/RuoYi-Vue-Plus/" class="category-chain-item">RuoYi-Vue-Plus</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/RuoYi-Vue-Plus/%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%88%E6%9D%83/" class="category-chain-item">第三方授权</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/RuoYi-Vue-Plus/" class="print-no-link">#RuoYi-Vue-Plus</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>RuoYi-Vue-Plus之第三方授权</div>
+      <div>http://example.com/2024/04/21/RuoYi-Vue-Plus之第三方授权/</div>
+    </div>
+    <div class="license-meta">
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年4月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/21/ruoyi-vue-plus%E4%B9%8B%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/" title="ruoyi-vue-plus之分页功能">
+                        <span class="hidden-mobile">ruoyi-vue-plus之分页功能</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
