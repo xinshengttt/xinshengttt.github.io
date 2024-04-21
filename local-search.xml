@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>ruoyi-vue-plus之分页功能</title>
+    <link href="/2024/04/21/ruoyi-vue-plus%E4%B9%8B%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/"/>
+    <url>/2024/04/21/ruoyi-vue-plus%E4%B9%8B%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/</url>
+    
+    <content type="html"><![CDATA[<p>文档地址：<a href="https://plus-doc.dromara.org/#/ruoyi-vue-plus/home">点击这里</a></p><p>项目地址：<a href="https://gitee.com/dromara/RuoYi-Vue-Plus/tree/4.X/">点击这里</a></p><p>功能介绍①：<a href="https://plus-doc.dromara.org/#/ruoyi-vue-plus/framework/basic/page">点击这里</a></p><p>功能介绍②：<a href="https://baomidou.com/pages/97710a/#paginationinnerinterceptor">点击这里</a></p><hr><h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><h3 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h3><p>本文章重点讲解分页功能，下面是本项目的mybatis-plus的配置类，已忽略掉数据权限处理和乐观锁插件。</p><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 启用事务管理的注解，该注解用于配置类上</span><span class="token annotation punctuation">@EnableTransactionManagement</span><span class="token punctuation">(</span>proxyTargetClass <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token comment">// 当前的自动配置类应该在 MybatisPlusAutoConfiguration.class 之前被加载和生效</span><span class="token annotation punctuation">@AutoConfiguration</span><span class="token punctuation">(</span>before <span class="token operator">=</span> <span class="token class-name">MybatisPlusAutoConfiguration</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token comment">// 注解用于指定要扫描的 Mapper 接口所在的包路径，并将这些接口注册为 Spring 的 Bean</span><span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span><span class="token string">"$&#123;mybatis-plus.mapperPackage&#125;"</span><span class="token punctuation">)</span><span class="token comment">// value指定了要加载的属性文件的位置  factory指定了属性文件加载的工厂类</span><span class="token comment">// 这个工厂类负责将属性文件解析为 Spring 的 PropertySource 对象，使得应用程序能够读取其中的属性值。</span><span class="token annotation punctuation">@PropertySource</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"classpath:common-mybatis.yml"</span><span class="token punctuation">,</span> factory <span class="token operator">=</span> <span class="token class-name">YmlPropertySourceFactory</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MybatisPlusConfig</span> <span class="token punctuation">&#123;</span>    <span class="token annotation punctuation">@Bean</span>    <span class="token keyword">public</span> <span class="token class-name">MybatisPlusInterceptor</span> <span class="token function">mybatisPlusInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        <span class="token class-name">MybatisPlusInterceptor</span> interceptor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MybatisPlusInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 分页插件</span>        interceptor<span class="token punctuation">.</span><span class="token function">addInnerInterceptor</span><span class="token punctuation">(</span><span class="token function">paginationInnerInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> interceptor<span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>        <span class="token comment">/**     * 分页插件，自动识别数据库类型     */</span>    <span class="token keyword">public</span> <span class="token class-name">PaginationInnerInterceptor</span> <span class="token function">paginationInnerInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        <span class="token class-name">PaginationInnerInterceptor</span> paginationInnerInterceptor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PaginationInnerInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 设置最大单页限制数量，默认 500 条，-1 不受限制</span>        paginationInnerInterceptor<span class="token punctuation">.</span><span class="token function">setMaxLimit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 分页合理化，溢出总页数后进行处理</span>        paginationInnerInterceptor<span class="token punctuation">.</span><span class="token function">setOverflow</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> paginationInnerInterceptor<span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p>由于该项目有多数据源，故没有配上具体的DbType</p><h3 id="控制层"><a href="#控制层" class="headerlink" title="控制层"></a>控制层</h3><p>例如，获取用户列表</p><p>控制层代码</p><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/** * 获取用户列表 */</span><span class="token annotation punctuation">@SaCheckPermission</span><span class="token punctuation">(</span><span class="token string">"system:user:list"</span><span class="token punctuation">)</span><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/list"</span><span class="token punctuation">)</span><span class="token keyword">public</span> <span class="token class-name">TableDataInfo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SysUserVo</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token class-name">SysUserBo</span> user<span class="token punctuation">,</span> <span class="token class-name">PageQuery</span> pageQuery<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">return</span> userService<span class="token punctuation">.</span><span class="token function">selectPageUserList</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> pageQuery<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p>返回对象是<code>TableDataInfo&lt;SysUserVo&gt;</code>,参数是SysUserBo和PageQuery。</p><p>注意，SysUserBo对象前面没有@RequestBody，原因是参数通过url路径传递(Query String Parameters).如果是参数是通过请求体传递(Request Payload)，则需要添加@RequestBody.</p><p><img src="/img/ruoyi-vue-plus%E4%B9%8B%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/3.png"></p><h3 id="TableDataInfo"><a href="#TableDataInfo" class="headerlink" title="TableDataInfo&lt;T&gt;"></a><code>TableDataInfo&lt;T&gt;</code></h3><p><code>TableDataInfo&lt;T&gt;</code>是表格分页数据对象，用于返回前端。通过build()方法构造出返回对象。</p><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token class-name">TableDataInfo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">IPage</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> page<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token class-name">TableDataInfo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> rspData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TableDataInfo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    rspData<span class="token punctuation">.</span><span class="token function">setCode</span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span><span class="token constant">HTTP_OK</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    rspData<span class="token punctuation">.</span><span class="token function">setMsg</span><span class="token punctuation">(</span><span class="token string">"查询成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    rspData<span class="token punctuation">.</span><span class="token function">setRows</span><span class="token punctuation">(</span>page<span class="token punctuation">.</span><span class="token function">getRecords</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    rspData<span class="token punctuation">.</span><span class="token function">setTotal</span><span class="token punctuation">(</span>page<span class="token punctuation">.</span><span class="token function">getTotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> rspData<span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p>重载方法：<code>build(List&lt;T&gt; list)</code>和 <code>build()</code>也能构造出返回对象</p><h3 id="PageQuery"><a href="#PageQuery" class="headerlink" title="PageQuery"></a>PageQuery</h3><p>PageQuery是分页查询实体类，核心是build()方法</p><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">// DEFAULT_PAGE_NUM默认为1</span>    <span class="token class-name">Integer</span> pageNum <span class="token operator">=</span> <span class="token class-name">ObjectUtil</span><span class="token punctuation">.</span><span class="token function">defaultIfNull</span><span class="token punctuation">(</span><span class="token function">getPageNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">DEFAULT_PAGE_NUM</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// DEFAULT_PAGE_SIZE默认为Integer.MAX_VALUE</span>    <span class="token class-name">Integer</span> pageSize <span class="token operator">=</span> <span class="token class-name">ObjectUtil</span><span class="token punctuation">.</span><span class="token function">defaultIfNull</span><span class="token punctuation">(</span><span class="token function">getPageSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">DEFAULT_PAGE_SIZE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>pageNum <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        pageNum <span class="token operator">=</span> <span class="token constant">DEFAULT_PAGE_NUM</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> page <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>pageNum<span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 构建排序</span>    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">OrderItem</span><span class="token punctuation">></span></span> orderItems <span class="token operator">=</span> <span class="token function">buildOrderItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">CollUtil</span><span class="token punctuation">.</span><span class="token function">isNotEmpty</span><span class="token punctuation">(</span>orderItems<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        page<span class="token punctuation">.</span><span class="token function">addOrder</span><span class="token punctuation">(</span>orderItems<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">return</span> page<span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p>返回类型是<code>Page&lt;T&gt;</code>，是接口 <code>Ipage&lt;T&gt;</code>的实现类，用来实现分页，拼接分页语句</p><h3 id="服务层"><a href="#服务层" class="headerlink" title="服务层"></a>服务层</h3><p><img src="/img/ruoyi-vue-plus%E4%B9%8B%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/1.png"></p><h3 id="数据层"><a href="#数据层" class="headerlink" title="数据层"></a>数据层</h3><h4 id="mapper"><a href="#mapper" class="headerlink" title="mapper"></a>mapper</h4><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 数据权限注解</span><span class="token annotation punctuation">@DataPermission</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>    <span class="token annotation punctuation">@DataColumn</span><span class="token punctuation">(</span>key <span class="token operator">=</span> <span class="token string">"deptName"</span><span class="token punctuation">,</span> value <span class="token operator">=</span> <span class="token string">"d.dept_id"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>    <span class="token annotation punctuation">@DataColumn</span><span class="token punctuation">(</span>key <span class="token operator">=</span> <span class="token string">"userName"</span><span class="token punctuation">,</span> value <span class="token operator">=</span> <span class="token string">"u.user_id"</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SysUserVo</span><span class="token punctuation">></span></span> <span class="token function">selectPageUserList</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"page"</span><span class="token punctuation">)</span> <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SysUser</span><span class="token punctuation">></span></span> page<span class="token punctuation">,</span> <span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span><span class="token constant">WRAPPER</span><span class="token punctuation">)</span> <span class="token class-name">Wrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SysUser</span><span class="token punctuation">></span></span> queryWrapper<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><h4 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h4><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>selectPageUserList<span class="token punctuation">"</span></span> <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>SysUserResult<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    select u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex,        u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark,        d.dept_name, d.leader, u1.user_name as leaderName    from sys_user u        left join sys_dept d on u.dept_id = d.dept_id        left join sys_user u1 on u1.user_id = d.leader    $&#123;ew.getCustomSqlSegment&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p>从mapper.xml文件中看出，最后拼接了<code>$&#123;ew.getCustomSqlSegment&#125;</code>，也就是参数queryWrapper。而page是mybatis-puls自动帮我们拼接的。当调用list接口时，sql的执行语句如下，拼接了分页条件</p><p><img src="/img/ruoyi-vue-plus%E4%B9%8B%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/2.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>RuoYi-Vue-Plus</category>
+      
+      <category>分页功能</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>RuoYi-Vue-Plus</tag>
+      
+      <tag>MyBatis-Plus</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ruoyi-vue-plus之数据权限</title>
     <link href="/2024/04/20/ruoyi-vue-plus%E4%B9%8B%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/"/>
     <url>/2024/04/20/ruoyi-vue-plus%E4%B9%8B%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/</url>
@@ -13,7 +42,7 @@
     
     <categories>
       
-      <category>ruoyi-vue-plus</category>
+      <category>RuoYi-Vue-Plus</category>
       
       <category>数据权限</category>
       
@@ -22,7 +51,7 @@
     
     <tags>
       
-      <tag>ruoyi-vue-plus</tag>
+      <tag>RuoYi-Vue-Plus</tag>
       
     </tags>
     
@@ -40,7 +69,7 @@
     
     <categories>
       
-      <category>ruoyi-vue-plus</category>
+      <category>RuoYi-Vue-Plus</category>
       
       <category>pom文件</category>
       
@@ -49,9 +78,9 @@
     
     <tags>
       
-      <tag>ruoyi-vue-plus</tag>
+      <tag>RuoYi-Vue-Plus</tag>
       
-      <tag>maven</tag>
+      <tag>Maven</tag>
       
     </tags>
     
@@ -88,7 +117,7 @@
     
     <categories>
       
-      <category>ruoyi-vue-plus</category>
+      <category>RuoYi-Vue-Plus</category>
       
       <category>代码生成</category>
       
@@ -97,7 +126,7 @@
     
     <tags>
       
-      <tag>ruoyi-vue-plus</tag>
+      <tag>RuoYi-Vue-Plus</tag>
       
       <tag>Velocity</tag>
       
@@ -117,7 +146,7 @@
     
     <categories>
       
-      <category>ruoyi-vue-plus</category>
+      <category>RuoYi-Vue-Plus</category>
       
       <category>代码生成</category>
       
@@ -126,7 +155,7 @@
     
     <tags>
       
-      <tag>ruoyi-vue-plus</tag>
+      <tag>RuoYi-Vue-Plus</tag>
       
       <tag>Velocity</tag>
       
@@ -137,7 +166,7 @@
   
   
   <entry>
-    <title>MySq系统数据库：information_schema</title>
+    <title>MySql系统数据库：information_schema</title>
     <link href="/2024/04/13/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation-schema/"/>
     <url>/2024/04/13/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation-schema/</url>
     
@@ -155,7 +184,7 @@
       
       <tag>MySql</tag>
       
-      <tag>ruoyi-vue-plus</tag>
+      <tag>RuoYi-Vue-Plus</tag>
       
     </tags>
     
@@ -180,7 +209,7 @@
     
     <tags>
       
-      <tag>ruoyi-vue-plus</tag>
+      <tag>RuoYi-Vue-Plus</tag>
       
       <tag>Velocity</tag>
       
