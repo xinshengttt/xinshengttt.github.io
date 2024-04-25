@@ -39,8 +39,12 @@
 <meta property="og:image" content="http://example.com/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/13.png">
 <meta property="og:image" content="http://example.com/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/14.png">
 <meta property="og:image" content="http://example.com/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/15.png">
+<meta property="og:image" content="http://example.com/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/16.png">
+<meta property="og:image" content="http://example.com/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/17.png">
+<meta property="og:image" content="http://example.com/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/18.png">
+<meta property="og:image" content="http://example.com/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/18.png">
 <meta property="article:published_time" content="2024-04-24T12:20:24.000Z">
-<meta property="article:modified_time" content="2024-04-24T14:12:48.694Z">
+<meta property="article:modified_time" content="2024-04-25T09:31:52.623Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary_large_image">
@@ -268,7 +272,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.4k 字
         
       </span>
     
@@ -279,7 +283,7 @@
         
         
         
-          9 分钟
+          12 分钟
         
       </span>
     
@@ -487,7 +491,103 @@ beanFactory<span class="token punctuation">.</span><span class="token function">
 <h4 id="排序原理"><a href="#排序原理" class="headerlink" title="排序原理"></a>排序原理</h4><p>数字越小，排序越优先。</p>
 <p><img src="/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/14.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/15.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>BeanFactory 不会做的事：</p>
+<h2 id="ApplicationContext实现"><a href="#ApplicationContext实现" class="headerlink" title="ApplicationContext实现"></a>ApplicationContext实现</h2><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * @author Becant
+ * 2024-04-25-16:18
+ * @version 1.0.0
+ * ApplicationContext的实现
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">A02Application</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">testAnnotationConfigApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">testAnnotationConfigServletWebServerApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Configuration</span>
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">WebConfig</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 注册内嵌的Tomcat服务器</span>
+        <span class="token annotation punctuation">@Bean</span>
+        <span class="token keyword">public</span> <span class="token class-name">ServletWebServerFactory</span> <span class="token class-name">ServletWebServerFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">TomcatServletWebServerFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 注册DispatcherServlet</span>
+        <span class="token annotation punctuation">@Bean</span>
+        <span class="token keyword">public</span> <span class="token class-name">DispatcherServlet</span> <span class="token function">dispatcherServlet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DispatcherServlet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 将DispatcherServlet注册到Tomcat上</span>
+        <span class="token annotation punctuation">@Bean</span>
+        <span class="token keyword">public</span> <span class="token class-name">DispatcherServletRegistrationBean</span> <span class="token function">dispatcherServletRegistrationBean</span><span class="token punctuation">(</span><span class="token class-name">DispatcherServlet</span> dispatcherServlet<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DispatcherServletRegistrationBean</span><span class="token punctuation">(</span>dispatcherServlet<span class="token punctuation">,</span> <span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 当web发来请求时，优先通过注册DispatcherServlet，再请求分发到控制器</span>
+        <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span>
+        <span class="token keyword">public</span> <span class="token class-name">Controller</span> <span class="token function">controller1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+                response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token annotation punctuation">@Configuration</span>
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Config</span><span class="token punctuation">&#123;</span>
+        <span class="token annotation punctuation">@Bean</span>
+        <span class="token keyword">public</span> <span class="token class-name">Bean1</span> <span class="token function">bean1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Bean1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+        <span class="token annotation punctuation">@Bean</span>
+        <span class="token keyword">public</span> <span class="token class-name">Bean2</span> <span class="token function">bean2</span><span class="token punctuation">(</span><span class="token class-name">Bean1</span> bean1<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">Bean2</span> bean2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Bean2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 创建依赖关系</span>
+            bean2<span class="token punctuation">.</span><span class="token function">setBean1</span><span class="token punctuation">(</span>bean1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> bean2<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Bean1</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Bean2</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">private</span> <span class="token class-name">Bean1</span> bean1<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setBean1</span><span class="token punctuation">(</span><span class="token class-name">Bean1</span> bean1<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>bean1 <span class="token operator">=</span> bean1<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Bean1</span> <span class="token function">getBean1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>bean1<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+
+
+<h3 id="ClassPathXmlApplicationContext"><a href="#ClassPathXmlApplicationContext" class="headerlink" title="ClassPathXmlApplicationContext"></a>ClassPathXmlApplicationContext</h3><p>该类已过时，日常中基本用不上。</p>
+<h3 id="FileSystemXmlApplicationContext"><a href="#FileSystemXmlApplicationContext" class="headerlink" title="FileSystemXmlApplicationContext"></a>FileSystemXmlApplicationContext</h3><p>该类已过时，日常中基本用不上。</p>
+<h3 id="AnnotationConfigApplicationContext"><a href="#AnnotationConfigApplicationContext" class="headerlink" title="AnnotationConfigApplicationContext"></a>AnnotationConfigApplicationContext</h3><p>测试方法：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">testAnnotationConfigApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">AnnotationConfigApplicationContext</span> context <span class="token operator">=</span>
+            <span class="token keyword">new</span> <span class="token class-name">AnnotationConfigApplicationContext</span><span class="token punctuation">(</span><span class="token class-name">Config</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> name <span class="token operator">:</span> context<span class="token punctuation">.</span><span class="token function">getBeanDefinitionNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">Bean2</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getBean1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>执行结果：</p>
+<p><img src="/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/16.png" srcset="/img/loading.gif" lazyload></p>
+<p>对于这个类，再使用这个类的构造方法时，<code>AnnotationConfi</code>gApplicationContext context &#x3D;<code>                 new AnnotationConfigApplicationContext(Bean1.class);</code>Bean1这个类上没有任何注解修饰，Bean1也会被注入容器。还有，没有在Config类上添加@Configuration注解，Config，Bean1，Bean2也会被注入容器。</p>
+<h3 id="AnnotationConfigServletWebServerApplicationContext"><a href="#AnnotationConfigServletWebServerApplicationContext" class="headerlink" title="AnnotationConfigServletWebServerApplicationContext"></a>AnnotationConfigServletWebServerApplicationContext</h3><p>测试方法：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">testAnnotationConfigServletWebServerApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">AnnotationConfigServletWebServerApplicationContext</span> context <span class="token operator">=</span>
+            <span class="token keyword">new</span> <span class="token class-name">AnnotationConfigServletWebServerApplicationContext</span><span class="token punctuation">(</span><span class="token class-name">WebConfig</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> name <span class="token operator">:</span> context<span class="token punctuation">.</span><span class="token function">getBeanDefinitionNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>执行结果：</p>
+<p><img src="/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/17.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/18.png" srcset="/img/loading.gif" lazyload></p>
+<p>接下来访问一下localhost:8080&#x2F;hello</p>
+<p><img src="/img/%E7%AC%AC%E4%BA%8C%E8%AE%B2%E3%80%81spring%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%AE%9E%E7%8E%B0/18.png" srcset="/img/loading.gif" lazyload></p>
+<p>访问成功</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h3><p>BeanFactory 不会做的事：</p>
 <ol>
 <li>不会主动调用 Beanfactory 的后处理器</li>
 <li>不会主动调用 Bean的后处理器</li>
@@ -496,6 +596,11 @@ beanFactory<span class="token punctuation">.</span><span class="token function">
 <li>不会解析${} 与 #{}</li>
 </ol>
 <p>后处理器有顺序</p>
+<h3 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h3><p>​	1.常见的ApplicationContext 容器实现</p>
+<p>​	2.内嵌容器、DispatcherServlet 的创建方法、作用</p>
+<p>​	3.非web环境的SpringBoot下使用AnnotationConfigApplicationContext</p>
+<p>​	4.web环境下的SpringBoot使用AnnotationConfigServletWebServerApplicationContext</p>
+<p>​	5.web环境下的SpringBoot核心组件就是ServletWebServerFactory和DispatcherServlet</p>
 
                 
               </div>
@@ -514,12 +619,12 @@ beanFactory<span class="token punctuation">.</span><span class="token function">
     
       <span class="category-chain">
         
-  <a href="/categories/Spring%E6%BA%90%E7%A0%81/" class="category-chain-item">Spring源码</a>
+  <a href="/categories/Spring/" class="category-chain-item">Spring</a>
   
   
     <span>></span>
     
-  <a href="/categories/Spring%E6%BA%90%E7%A0%81/%E5%AE%B9%E5%99%A8%E4%B8%8EBean/" class="category-chain-item">容器与Bean</a>
+  <a href="/categories/Spring/%E5%AE%B9%E5%99%A8%E4%B8%8EBean/" class="category-chain-item">容器与Bean</a>
   
   
 
@@ -562,7 +667,7 @@ beanFactory<span class="token punctuation">.</span><span class="token function">
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年4月24日</div>
+          <div>2024年4月25日</div>
         </div>
       
       
