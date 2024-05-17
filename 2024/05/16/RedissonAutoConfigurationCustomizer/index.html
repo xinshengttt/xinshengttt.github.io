@@ -16,25 +16,26 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简单介绍information_schema：mysql自带的数据库，用于存储数据库元数据，例如数据库名、表名、列的数据类型、访问权限等。通过查询information_schema中的视图和表，用户可以获取数据库架构的详细信息，以便进行元数据管理、数据字典生成、权限管理等。 数据库的部分表结构information_schema.tables表示查询数据库information_schema的表">
+    <meta name="description" content="[redisson文档][[目录 · redisson&#x2F;redisson Wiki · GitHub](目录 · redisson&#x2F;redisson Wiki · GitHub)  通过案例引出问题 明明我们没有对参数config进行操作，为什么他初始值不为空呢？ RedissonAutoConfigurationCustomizer是什么 Customizer翻译成中文就是定">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql系统数据库：information_schema">
-<meta property="og:url" content="http://example.com/2024/04/13/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation-schema/index.html">
+<meta property="og:title" content="RedissonAutoConfigurationCustomizer">
+<meta property="og:url" content="http://example.com/2024/05/16/RedissonAutoConfigurationCustomizer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="简单介绍information_schema：mysql自带的数据库，用于存储数据库元数据，例如数据库名、表名、列的数据类型、访问权限等。通过查询information_schema中的视图和表，用户可以获取数据库架构的详细信息，以便进行元数据管理、数据字典生成、权限管理等。 数据库的部分表结构information_schema.tables表示查询数据库information_schema的表">
+<meta property="og:description" content="[redisson文档][[目录 · redisson&#x2F;redisson Wiki · GitHub](目录 · redisson&#x2F;redisson Wiki · GitHub)  通过案例引出问题 明明我们没有对参数config进行操作，为什么他初始值不为空呢？ RedissonAutoConfigurationCustomizer是什么 Customizer翻译成中文就是定">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation_schema/1.png">
-<meta property="article:published_time" content="2024-04-13T05:23:41.000Z">
-<meta property="article:modified_time" content="2024-04-21T05:09:50.926Z">
+<meta property="og:image" content="http://example.com/img/RedissonAutoConfigurationCustomizer/1.png">
+<meta property="og:image" content="http://example.com/img/RedissonAutoConfigurationCustomizer/2.png">
+<meta property="og:image" content="http://example.com/img/RedissonAutoConfigurationCustomizer/3.png">
+<meta property="article:published_time" content="2024-05-16T08:53:41.000Z">
+<meta property="article:modified_time" content="2024-05-16T09:12:39.638Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="MySql">
-<meta property="article:tag" content="RuoYi-Vue-Plus">
+<meta property="article:tag" content="redisson">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation_schema/1.png">
+<meta name="twitter:image" content="http://example.com/img/RedissonAutoConfigurationCustomizer/1.png">
   
   
   
-  <title>MySql系统数据库：information_schema - Hexo</title>
+  <title>RedissonAutoConfigurationCustomizer - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -231,7 +232,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="MySql系统数据库：information_schema"></span>
+            <span id="subtitle" data-typed-text="RedissonAutoConfigurationCustomizer"></span>
           
         </div>
 
@@ -242,8 +243,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-13 13:23" pubdate>
-          2024年4月13日 下午
+        <time datetime="2024-05-16 16:53" pubdate>
+          2024年5月16日 下午
         </time>
       </span>
     
@@ -254,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          400 字
+          160 字
         
       </span>
     
@@ -265,7 +266,7 @@
         
         
         
-          4 分钟
+          2 分钟
         
       </span>
     
@@ -306,36 +307,21 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">MySql系统数据库：information_schema</h1>
+            <h1 id="seo-header">RedissonAutoConfigurationCustomizer</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p>information_schema：mysql自带的数据库，用于存储数据库元数据，例如数据库名、表名、列的数据类型、访问权限等。通过查询information_schema中的视图和表，用户可以获取数据库架构的详细信息，以便进行元数据管理、数据字典生成、权限管理等。</p>
-<h4 id="数据库的部分表结构"><a href="#数据库的部分表结构" class="headerlink" title="数据库的部分表结构"></a>数据库的部分表结构</h4><h5 id="information-schema-tables"><a href="#information-schema-tables" class="headerlink" title="information_schema.tables"></a>information_schema.tables</h5><p>表示查询数据库information_schema的表tables。</p>
-<p>tables：information_schema的一张表，用于存储数据库的表信息，包括表属于哪个数据库、表的名称、表的类型、创建时间、存储引擎。</p>
-<h5 id="information-schema-columns"><a href="#information-schema-columns" class="headerlink" title="information_schema.columns"></a>information_schema.columns</h5><p>information_schema.columns: 数据库information_schema的表columns，存储了关于数据库中所有表的列的信息。</p>
-<p>下面来看一段mysql代码：</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select column_name,
-                   (case when (is_nullable &#x3D; &#39;no&#39; &lt;![CDATA[ &amp;&amp; ]]&gt; column_key !&#x3D; &#39;PRI&#39;) then &#39;1&#39; else &#39;0&#39; end) as is_required,
-                   (case when column_key &#x3D; &#39;PRI&#39; then &#39;1&#39; else &#39;0&#39; end) as is_pk,
-                   ordinal_position as sort,
-                   column_comment,
-                   (case when extra &#x3D; &#39;auto_increment&#39; then &#39;1&#39; else &#39;0&#39; end) as is_increment,
-                   column_type
-            from information_schema.columns where table_schema &#x3D; (select database()) and table_name &#x3D; (#&#123;tableName&#125;)
-            order by ordinal_position<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-
-<h6 id="解释字段："><a href="#解释字段：" class="headerlink" title="解释字段："></a>解释字段：</h6><p>is_nulable: 如果列有关键字NOT NULL修饰，则结果为no，表示不能为空，反之则为yes.</p>
-<p>column_key: 判断列是否为主键，是则显示’PRI’.</p>
-<p>ordinal_position: 排列顺序</p>
-<p>column_comment: 列注释</p>
-<p>extra: 额外信息</p>
-<p>column_type: 列类型</p>
-<p><img src="/img/MySq%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Ainformation_schema/1.png" srcset="/img/loading.gif" lazyload></p>
-<p>select database()：查询当前使用的是哪个数据库</p>
-<p>case when: 这是在sql中启动了一个条件语句，如果条件成立，则执行then语句内容，否则实行else语句内容。</p>
-<p><code>&lt;![CDATA[ &amp;&amp; ]]&gt;</code>: 目的是为了让XML解析器让将’&amp;&amp;’视为纯文本而不是XML标记。</p>
+                <p>[redisson文档][[目录 · redisson&#x2F;redisson Wiki · GitHub](<a target="_blank" rel="noopener" href="https://github.com/redisson/redisson/wiki/%E7%9B%AE%E5%BD%95">目录 · redisson&#x2F;redisson Wiki · GitHub</a>)</p>
+<hr>
+<h2 id="通过案例引出问题"><a href="#通过案例引出问题" class="headerlink" title="通过案例引出问题"></a>通过案例引出问题</h2><p><img src="/img/RedissonAutoConfigurationCustomizer/1.png" srcset="/img/loading.gif" lazyload></p>
+<p>明明我们没有对参数config进行操作，为什么他初始值不为空呢？</p>
+<h2 id="RedissonAutoConfigurationCustomizer是什么"><a href="#RedissonAutoConfigurationCustomizer是什么" class="headerlink" title="RedissonAutoConfigurationCustomizer是什么"></a>RedissonAutoConfigurationCustomizer是什么</h2><p><img src="/img/RedissonAutoConfigurationCustomizer/2.png" srcset="/img/loading.gif" lazyload></p>
+<p>Customizer翻译成中文就是定制器。也就是说，如果我们需要自定义RedissonCLient，就需要继承该接口。</p>
+<h2 id="回到问题"><a href="#回到问题" class="headerlink" title="回到问题"></a>回到问题</h2><p>config是如何被赋值的呢？</p>
+<p>这是由于RedissonAutoConfiguration类的redisson方法实现的。在这个方法里面，对config进行各种操作。然后遍历所有定制器，执行定制器的customize(config)方法。</p>
+<p><img src="/img/RedissonAutoConfigurationCustomizer/3.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>config参数不需要我们操心，交给redisson就行。</p>
 
                 
               </div>
@@ -354,7 +340,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/MySql/" class="category-chain-item">MySql</a>
+  <a href="/categories/redisson/" class="category-chain-item">redisson</a>
   
   
 
@@ -369,9 +355,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/MySql/" class="print-no-link">#MySql</a>
-      
-        <a href="/tags/RuoYi-Vue-Plus/" class="print-no-link">#RuoYi-Vue-Plus</a>
+        <a href="/tags/redisson/" class="print-no-link">#redisson</a>
       
     </div>
   
@@ -383,21 +367,21 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>MySql系统数据库：information_schema</div>
-      <div>http://example.com/2024/04/13/MySq系统数据库：information-schema/</div>
+      <div>RedissonAutoConfigurationCustomizer</div>
+      <div>http://example.com/2024/05/16/RedissonAutoConfigurationCustomizer/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月13日</div>
+          <div>2024年5月16日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年4月21日</div>
+          <div>2024年5月16日</div>
         </div>
       
       
@@ -428,18 +412,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/14/ruoyi-vue-plus%E4%B9%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%88%E4%B8%80%EF%BC%89/" title="ruoyi-vue-plus之代码生成（一）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ruoyi-vue-plus之代码生成（一）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/11/Velocity%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%92%8C%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" title="Velocity模板引擎和模板语法基础">
-                        <span class="hidden-mobile">Velocity模板引擎和模板语法基础</span>
+                      <a href="/2024/05/12/RuoYi-Vue-Plus%E4%B9%8B%E5%A4%9A%E7%A7%9F%E6%88%B7%E5%8A%9F%E8%83%BD/" title="RuoYi-Vue-Plus之多租户功能">
+                        <span class="hidden-mobile">RuoYi-Vue-Plus之多租户功能</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
